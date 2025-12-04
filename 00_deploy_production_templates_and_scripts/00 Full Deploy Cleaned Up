@@ -26,16 +26,17 @@ pip install -r requirements.txt
 # [local_path_to_project_root]   -> e.g., /Users/username/PersonalWebsiteDemo
 # -------------------------------------------------------------------
 
+"C:\Users\maxal\Desktop\Everything\.ssh\Private-Website.key"
 
 ### PART 1: Initial Server Setup & App Deployment ###
 
 # 1. SSH into the remote server
 # -------------------------------------------------------------------
 # Set correct permissions for your private key on your local machine
-sudo chmod 600 [local_path_to_ssh_key_folder]/ssh-demopersonalwebsite.key
+sudo chmod 600 C:\Users\maxal\Desktop\Everything\.ssh\Private-Website.key
 
 # Connect to the server
-ssh -i [local_path_to_ssh_key_folder]/ssh-demopersonalwebsite.key ubuntu@[IP_address_remote_server]
+ssh -i C:\Users\maxal\Desktop\Everything\.ssh\Private-Website.key ubuntu@150.136.79.37
 
 
 # 2. Install essential system packages on the server
@@ -51,7 +52,7 @@ sudo reboot now # Reboot to apply all updates. You will be disconnected.
 ssh -i [local_path_to_ssh_key_folder]/ssh-demopersonalwebsite.key ubuntu@[IP_address_remote_server]
 
 # Clone your project from GitHub
-git clone https://github.com/cloned_location/PersonalWebsiteDemo.git
+git clone https://github.com/Water6446/PersonalWebsite
 
 # Navigate to the backend directory
 cd /home/ubuntu/PersonalWebsiteDemo/backend
@@ -75,6 +76,8 @@ scp -i [local_path_to_ssh_key_folder]/ssh-demopersonalwebsite.key [local_path_to
 # -------------------------------------------------------------------
 # On your LOCAL MACHINE, build the React app
 # npm run build:web
+
+cp -r C:\Users\maxal\Desktop\Everything\VSCode\Personal-Website-Working-Deployed\PersonalWebsite\frontend\dist_web\* \Users\maxal\Desktop\Everything\VSCode\Personal-Website-Working-Deployed\PersonalWebsite\backend/dist_prod
 
 # On your LOCAL MACHINE, copy the build files into a location accessible by the backend
 # cp -r [local_path_to_project_root]/frontend/dist_web/* [local_path_to_project_root]/backend/dist_prod

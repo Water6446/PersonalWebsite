@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Simple DataTables Test</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/simple-datatables@latest/dist/style.css">
+</head>
+<body>
+<table id="myTable">
+  <thead>
+  <tr>
+    <th>Name</th>
+    <th>Age</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr>
+    <td>John Doe</td>
+    <td>30</td>
+  </tr>
+  <tr>
+    <td>Jane Smith</td>
+    <td>25</td>
+  </tr>
+  </tbody>
+</table>
+
+<script src="https://cdn.jsdelivr.net/npm/simple-datatables@latest/dist/umd/simple-datatables.js"></script>
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    const dataTable = new simpleDatatables.DataTable("#myTable");
+
+    //Just for testing you can add manually button
+    const wrapper = document.querySelector('.datatable-wrapper');
+    if (wrapper) {
+      const topDiv = wrapper.querySelector('.datatable-top');  // Or another appropriate location
+      if (topDiv) {
+        //Create the export div and inject the button and the dropdown
+        const exportDiv = document.createElement('div');
+        exportDiv.className = 'datatable-export';  //Optional: Add a class for styling
+        exportDiv.textContent= 'EXPORT BUTTON'
+
+        //Append it to the topDiv
+        topDiv.prepend(exportDiv); // Or append, depending on desired order
+      }
+    }
+  });
+</script>
+</body>
+</html>

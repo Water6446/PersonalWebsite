@@ -1,0 +1,17 @@
+<svg width="128" height="128" viewBox="0 0 128 128" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="128" height="128" rx="24" fill="#1A202C"/>
+  <text
+    x="50%"
+    y="50%"
+    dominant-baseline="central"
+    text-anchor="middle"
+    fill="white"
+    font-size="60"
+    font-family="'Segoe UI', sans-serif"
+    font-weight="900"
+    transform="rotate(-10 64 64)"
+    style="paint-order: stroke; stroke: black; stroke-width: 1;"
+  >
+    MF
+  </text>
+</svg>

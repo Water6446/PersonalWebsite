@@ -1,0 +1,16 @@
+<svg width="128" height="128" viewBox="0 0 128 128" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <circle cx="64" cy="64" r="64" fill="#1A202C"/>
+  <text
+    x="50%"
+    y="50%"
+    dominant-baseline="central"
+    text-anchor="middle"
+    fill="white"
+    font-size="64"
+    font-family="Arial, sans-serif"
+    font-weight="bold"
+    transform="rotate(-15 64 64)"
+  >
+    MF
+  </text>
+</svg>

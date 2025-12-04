@@ -118,7 +118,7 @@ ROOT_URLCONF = 'personalsite.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [BASE_DIR / 'dist_prod'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -227,15 +227,16 @@ MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media') # Make sure BASE_DIR is correctly defined (it should be)
 
 # email confirmation settings
-EMAIL_BACKEND = os.environ['EMAIL_BACKEND']
-EMAIL_HOST = os.environ['EMAIL_HOST']
-EMAIL_PORT = int(os.environ['EMAIL_PORT'])
-EMAIL_HOST_USER = os.environ['EMAIL_HOST_USER']
-EMAIL_HOST_PASSWORD = os.environ['EMAIL_HOST_PASSWORD']
-# EMAIL_USE_SSL = os.environ['EMAIL_USE_SSL']
-EMAIL_USE_TLS = os.environ['EMAIL_USE_TLS']
-ADMIN_NOTIFICATION_EMAIL=os.environ['ADMIN_NOTIFICATION_EMAIL']
-DEFAULT_FROM_EMAIL=os.environ['DEFAULT_FROM_EMAIL']
+# Defaults to console backend if the variable isn't found
+EMAIL_BACKEND = os.getenv('EMAIL_BACKEND', 'django.core.mail.backends.console.EmailBackend')
+EMAIL_HOST = os.environ.get('EMAIL_HOST', 'localhost')
+EMAIL_PORT = int(os.environ.get('EMAIL_PORT', 587))
+EMAIL_HOST_USER = os.environ.get('EMAIL_HOST_USER', '')
+EMAIL_HOST_PASSWORD = os.environ.get('EMAIL_HOST_PASSWORD', '')
+# EMAIL_USE_SSL = os.environ.get('EMAIL_USE_SSL') == 'True'
+EMAIL_USE_TLS = os.environ.get('EMAIL_USE_TLS') == 'True'
+ADMIN_NOTIFICATION_EMAIL = os.environ.get('ADMIN_NOTIFICATION_EMAIL', 'admin@example.com')
+DEFAULT_FROM_EMAIL = os.environ.get('DEFAULT_FROM_EMAIL', 'webmaster@example.com')
 
 LOGGING = {
     'version': 1,

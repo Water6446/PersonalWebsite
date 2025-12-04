@@ -2,6 +2,7 @@
 from django.contrib import admin
 from django.urls import path, include
 from rest_framework_simplejwt.views import TokenRefreshView
+from django.views.generic import TemplateView
 
 # --- NEW IMPORTS FOR MEDIA FILES ---
 from django.conf import settings
@@ -18,6 +19,7 @@ urlpatterns = [
     path('api/photos/', include('photo_store.urls')), # This will include /api/photos/galleries/ and /api/photos/images/
 
     path('backend/', include('backend.urls')),
+    path('', TemplateView.as_view(template_name='index.html')),
 ]
 
 # --- CRITICAL: SERVE MEDIA FILES ONLY IN DEVELOPMENT (DEBUG=True) ---
